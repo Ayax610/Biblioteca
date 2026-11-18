@@ -9,8 +9,8 @@ Algunos de los pasos que se hicieron para crear los archivos
 - Git commit -m
 - Git push
 
-#Crear repositorio en awardspace
-Le llamé **bibliotecaorlando**
+# Crear repositorio en AwardSpace
+Le llamé **bibliotecaorlando** en **AwardSpace**.
 # Crear Tabla Principal
 
 	1.  Jueves 12 de Noviembre del 2026
@@ -34,10 +34,10 @@ INSERT INTO libros (titulo, autor, isbn, disponible) VALUES
 ('Don Quijote de la Mancha', 'Miguel de Cervantes', '978-8424937461', 1);
 ```
 
- # index.php
+ #index.php
  
  1.- Puse el siguiente código en el archivo creado **index.php**.
- ```html
+ ```php
  <?php
 // Cambia estos datos con los que te proporcione AwardSpace en tu "Database
 Manager"
@@ -465,5 +465,42 @@ registrados.</td>
 </table>
 </section>
 ```
+Ya con eso se puede realizar las acciones anteriormente mencionadas.
 
+# Agregar al final de styles.css
 
+```CSS
+.btn-action {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+    transition: background 0.2s ease;
+    width: 100%;
+    min-width: 80px;
+}
+
+.btn-prestar {
+    background-color: #3498db;
+}
+
+.btn-prestar:hover {
+    background-color: #2980b9;
+}
+
+.btn-devolver {
+    background-color: #e67e22;
+}
+
+.btn-devolver:hover {
+    background-color: #d35400;
+}
+
+/* Ajuste opcional para la tabla responsiva */
+.table-container {
+    overflow-x: auto;
+}
+```
