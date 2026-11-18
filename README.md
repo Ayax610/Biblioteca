@@ -17,7 +17,7 @@ Le llamé **bibliotecaorlando** en **AwardSpace**.
 
 	Creé dentro de **php MySQL** la tabla llamada **libros**
 
-```html
+```mysql
 CREATE TABLE libros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE libros (
 ```
 
 2.- Inserté un par de libros:
-```html
+```mysql
 INSERT INTO libros (titulo, autor, isbn, disponible) VALUES
 ('Cien años de soledad', 'Gabriel García Márquez', '978-0307474728', 1),
 ('Don Quijote de la Mancha', 'Miguel de Cervantes', '978-8424937461', 1);
