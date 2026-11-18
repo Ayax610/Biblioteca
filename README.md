@@ -5,7 +5,7 @@ Algunos de los pasos que se hicieron para crear los archivos
 </p>
 - Git init
 - Git status
-- Git add .
+- Git add . 
 - Git commit -m
 - Git push
 
