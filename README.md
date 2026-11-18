@@ -34,7 +34,7 @@ INSERT INTO libros (titulo, autor, isbn, disponible) VALUES
 ('Don Quijote de la Mancha', 'Miguel de Cervantes', '978-8424937461', 1);
 ```
 
- #index.php
+ # index.php
  
  1.- Puse el siguiente código en el archivo creado **index.php**.
  ```html
@@ -136,7 +136,7 @@ registrados.</td>
 Cambié los datos con los que me proporcionó AwardSpace en mi "Database
 Manager" como: **usuario**,** contraseña**, **root** y nombre de **database**.
 
-#guardar.php
+# guardar.php
 
 Seguí con el archivo **guardar.php** que creé y puse el siguiente código:
 ```php
@@ -173,8 +173,10 @@ $conexion->close();
 ```
 E igual le cambié **usuario**,** contraseña**, **root** y nombre de **database**.
 
-#Style.css
+# Style.css
 Creé una **hoja de estilo**, la cual me ayudó a darle formato a la página web.
+
+>El diseño es al gusto del editor.
 
 ```css
 :root {
@@ -328,7 +330,11 @@ th {
 ```
 Con esto se logró un diseño **mejor** y **bonito**.
 
-#Script.js
+------------
+
+
+# Script.js
+Con el **script** se pudieron realizar las operaciones de la página web, es como el cerebro **JavaScript**.
 ```js
 document.addEventListener('DOMContentLoaded', () => {
 const form = document.getElementById('formLibro');
@@ -357,6 +363,107 @@ window.history.replaceState({}, document.title, window.location.pathname);
 alert('¡Libro registrado con éxito en el inventario!');
 }
 });
+```
+Esto sirvió para **evitar** que se **guarden** libros con campos vacíos y **comprobar** que el ISBN tenga una longitud **pequeña**.
+
+# cambiarEstado.php
+Creé el archivo llamdo **cambiarEstado.php** para crear una nueva función dentro de la página web.
+
+```php
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id']) &&
+isset($_POST['actual'])) {
+$host = "pdbXX.awardspace.net"; // Reemplaza por tus datos de AwardSpace
+$usuario = "tu_usuario_bd";
+$password = "tu_password_bd";
+$base_datos = "tu_nombre_bd";
+$conexion = new mysqli($host, $usuario, $password, $base_datos);
+if ($conexion->connect_error) {
+die("Error de conexión: " . $conexion->connect_error);
+}
+$id = intval($_POST['id']);
+$estado_actual = intval($_POST['actual']);
+// Si estaba disponible (1), ahora será prestado (0). Si estaba prestado (0), será
+disponible (1).
+$nuevo_estado = ($estado_actual === 1) ? 0 : 1;
+
+$sql = "UPDATE libros SET disponible = $nuevo_estado WHERE id = $id";
+if ($conexion->query($sql) === TRUE) {
+// Redirecciona de vuelta con un parámetro de éxito de actualización
+header("Location: index.php?updated=1");
+} else {
+echo "Error al actualizar el estado: " . $conexion->error;
+}
+$conexion->close();
+} else {
+header("Location: index.php");
+}
+?>
+```
+Para **prestar** o **devolver** libros.
+> Apenas se **implementará** de manera completa esta función en lo siguiente.
+
+# Modificación del index.php
+Busqué la tabla en el archivo **index.php** y la reemplazé con esta versión, la cual
+incluye una nueva columna llamada **Acción** con un botón dinámico.
+
+```php
+<!-- Tabla de libros en la Base de Datos -->
+<section class="card table-container">
+<h2>Inventario de Libros</h2>
+<table id="tablaLibros">
+<thead>
+<tr>
+<th>ID</th>
+<th>Título</th>
+<th>Autor</th>
+<th>ISBN</th>
+<th>Estado</th>
+<th>Acción</th> <!-- Nueva columna -->
+</tr>
+</thead>
+<tbody>
+<?php if ($resultado->num_rows > 0): ?>
+<?php while($fila = $resultado->fetch_assoc()): ?>
+<tr>
+<td><?php echo $fila['id']; ?></td>
+<td><strong><?php echo htmlspecialchars($fila['titulo']);
+?></strong></td>
+<td><?php echo htmlspecialchars($fila['autor']); ?></td>
+<td><?php echo htmlspecialchars($fila['isbn']); ?></td>
+<td>
+<span class="badge <?php echo $fila['disponible'] ? 'dispo' :
+'prestado'; ?>">
+<?php echo $fila['disponible'] ? 'Disponible' : 'Prestado'; ?>
+</span>
+</td>
+<td>
+
+<!-- Formulario que envía el ID y el estado actual al script de
+actualización -->
+<form action="cambiarEstado.php" method="POST"
+style="margin:0;">
+<input type="hidden" name="id" value="<?php echo $fila['id'];
+?>">
+<input type="hidden" name="actual" value="<?php echo
+$fila['disponible']; ?>">
+<button type="submit" class="btn-action <?php echo
+$fila['disponible'] ? 'btn-prestar' : 'btn-devolver'; ?>">
+<?php echo $fila['disponible'] ? 'Prestar' : 'Devolver'; ?>
+</button>
+</form>
+</td>
+</tr>
+<?php endwhile; ?>
+<?php else: ?>
+<tr>
+<td colspan="6" style="text-align: center;">No hay libros
+registrados.</td>
+</tr>
+<?php endif; ?>
+</tbody>
+</table>
+</section>
 ```
 
 
