@@ -585,6 +585,8 @@ Hasta la parte de abajo de my archivo **style.css** añadí lo siguiente:
 
 Después de todo así quedó la página web:
 
+[Ver Biblioteca de Orlando]: https://github.com/Ayax610/Biblioteca/edit/master/README.md
+
 ![Resultado Final](./resultado_final.png)
 
 Ya quedó :smile:
