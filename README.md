@@ -1,5 +1,7 @@
 
 # Creación de archivos
+
+**1. Jueves 12 de Noviembre del 2026**
 <p>
 Algunos de los pasos que se hicieron para crear los archivos
 </p>
@@ -15,7 +17,7 @@ Le llamé **bibliotecaorlando** en **AwardSpace**.
 ![El dominio de AwardSpace](./award_dominio.png)
 # Crear Tabla Principal
 
-	1.  Jueves 12 de Noviembre del 2026
+**2.  Jueves 12 de Noviembre del 2026**
 
 	Creé dentro de **php MySQL** la tabla llamada **libros**
 
@@ -37,7 +39,7 @@ INSERT INTO libros (titulo, autor, isbn, disponible) VALUES
 ```
 
  #index.php
- 
+ **3.  Martes 17 de Noviembre del 2026**
  1.- Puse el siguiente código en el archivo creado **index.php**.
  ```php
  <?php
@@ -139,6 +141,7 @@ Cambié los datos con los que me proporcionó AwardSpace en mi "Database
 Manager" como: **usuario**,** contraseña**, **root** y nombre de **database**.
 
 # guardar.php
+ **4.  Martes 17 de Noviembre del 2026**
 
 Seguí con el archivo **guardar.php** que creé y puse el siguiente código:
 ```php
@@ -176,6 +179,8 @@ $conexion->close();
 E igual le cambié **usuario**,** contraseña**, **root** y nombre de **database**.
 
 # Style.css
+ **5.  Martes 17 de Noviembre del 2026**
+ 
 Creé una **hoja de estilo**, la cual me ayudó a darle formato a la página web.
 
 >El diseño es al gusto del editor.
@@ -336,6 +341,8 @@ Con esto se logró un diseño **mejor** y **bonito**.
 
 
 # Script.js
+ **6.  Martes 17 de Noviembre del 2026**
+ 
 Con el **script** se pudieron realizar las operaciones de la página web, es como el cerebro **JavaScript**.
 ```js
 document.addEventListener('DOMContentLoaded', () => {
@@ -369,6 +376,8 @@ alert('¡Libro registrado con éxito en el inventario!');
 Esto sirvió para **evitar** que se **guarden** libros con campos vacíos y **comprobar** que el ISBN tenga una longitud **pequeña**.
 
 # cambiarEstado.php
+ **7.  Martes 17 de Noviembre del 2026**
+ 
 Creé el archivo llamdo **cambiarEstado.php** para crear una nueva función dentro de la página web.
 
 ```php
@@ -406,6 +415,8 @@ Para **prestar** o **devolver** libros.
 > Apenas se **implementará** de manera completa esta función en lo siguiente.
 
 # Modificación del index.php
+ **8.  Martes 17 de Noviembre del 2026**
+
 Busqué la tabla en el archivo **index.php** y la reemplazé con esta versión, la cual
 incluye una nueva columna llamada **Acción** con un botón dinámico.
 
@@ -470,6 +481,7 @@ registrados.</td>
 Ya con eso se puede realizar las acciones anteriormente mencionadas.
 
 # Agregar al final de styles.css
+ **9.  Martes 17 de Noviembre del 2026**
 
 ```CSS
 .btn-action {
@@ -509,7 +521,73 @@ Ya con eso se puede realizar las acciones anteriormente mencionadas.
 Con esto se mejoraron los botones de **prestar** y **devolver**.
 
 # Resultado Provisional
+ **10.  Martes 17 de Noviembre del 2026**
 Así quedó la página web hasta el momento :}
 
 ![Resultado Provisional](./Biblioteca_cap.png)
+
+# Implementación de Ver Manual De Usuario
+## Edición del index.php
+
+ **11.  Miércoles 18 de Noviembre del 2026**
+
+Implementé un botón de **Ver manual de usuario** para que el usuario pueda saber cómo manejar bien la página.
+
+Añadí esto: 
+
+```HTML
+<header>
+    <h1>Sistema de Control de Biblioteca</h1>
+
+    <button type="button" class="btn-manual"
+        onclick="window.open('Documentos/Manual_Usuario.pdf', '_blank')">
+        📖 Ver manual de usuario
+    </button>
+
+</header>
+```
+Ósea modifiqué la parte del **header** para que apareciera el botón y abriera mi pdf que es el **Manual de usuario**.
+
+[Ver documento PDF](./Manual_Usuario.pdf)
+
+
+> Aún falta diseño para que se vea mejor entonces...
+
+------------
+## Edición del style.css
+ **12.  Miércoles 18 de Noviembre del 2026**
+
+Hasta la parte de abajo de my archivo **style.css** añadí lo siguiente:
+```CSS
+.btn-manual {
+    display: inline-block;
+    background-color: #007bff;
+    color: white !important;
+    padding: 12px 20px;
+    text-decoration: none !important;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-manual:hover {
+    background-color: #0056b3;
+    color: white !important;
+}
+```
+
+# Resultado final
+ **13.  Miércoles 18 de Noviembre del 2026**
+
+Después de todo así quedó la página web:
+
+![Resultado Final](./resultado_final.png)
+
+Ya quedó :smile:
+
+
 
