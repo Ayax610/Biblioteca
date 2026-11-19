@@ -585,7 +585,10 @@ Hasta la parte de abajo de my archivo **style.css** añadí lo siguiente:
 
 Después de todo así quedó la página web:
 
+Para acceder al sistema, puedes [Ver Biblioteca de Orlando].
+
 [Ver Biblioteca de Orlando]: http://bibliotecaorlando.atwebpages.com/
+
 
 ![Resultado Final](./resultado_final.png)
 
