@@ -504,3 +504,10 @@ Ya con eso se puede realizar las acciones anteriormente mencionadas.
     overflow-x: auto;
 }
 ```
+Con esto se mejoraron los botones de **prestar** y **devolver**.
+
+# Resultado Provisional
+Así quedó la página web hasta el momento :}
+
+![Resultado Provisional](./Biblioteca_cap.png)
+
