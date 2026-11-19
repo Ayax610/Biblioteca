@@ -11,6 +11,8 @@ Algunos de los pasos que se hicieron para crear los archivos
 
 # Crear repositorio en AwardSpace
 Le llamé **bibliotecaorlando** en **AwardSpace**.
+
+![El dominio de AwardSpace](./award_dominio.png)
 # Crear Tabla Principal
 
 	1.  Jueves 12 de Noviembre del 2026
